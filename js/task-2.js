@@ -5,20 +5,24 @@ console.log("TASK-2 ========================================");
 // Кожен об’єкт описує день тижня та кількість калорій calories, спожитих спортсменом, у цей день.
 // Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи.У консоль будуть виведені результати її викликів.
 
+
 function calcAverageCalories(days) {
 
   const totalSumDays = days.length;
   let sumCalories = 0;
   let result = 0;
 
-  for (const day of days) {
-    result = totalSumDays > 0 ? sumCalories += day.calories / totalSumDays : result;
+  // "Для запобігання ділення на 0 в кінцевому результаті, проводимо перевірку що обʼект не пустий. Якщо обʼєкт не пустий - запускаємо цикл For для подальших розрахунків, в іншому випадку функція завершиться і повернеться значення вказане в змінну result = 0"
+  if (totalSumDays > 0) {  
+    for (const day of days) {
+      sumCalories += day.calories;
+    } 
+    result = sumCalories / totalSumDays;
   } 
-  
+
   return result;
  
   }
-
 
 
 console.log(
